@@ -13,25 +13,50 @@ from mediapipe.tasks.python.core.base_options import BaseOptions
 from PIL import Image, ImageTk
 import tkinter as tk
 
-from new_project import (
-    BASE,
-    MODEL_PATH,
-    NET_PATH,
-    HOLD_FRAMES,
-    REPEAT_COOLDOWN,
-    SMOOTH_WINDOW,
-    CONF_OK,
-    CONF_SURE,
-    CONF_MIN,
-    FONT,
-    CONNECTIONS,
-    normalize,
-    classify,
-    predict_letter,
-    text,
-    open_camera,
-    NET,
-)
+try:
+    from ASLtranslater.camera_reader import (
+        BASE,
+        MODEL_PATH,
+        NET_PATH,
+        HOLD_FRAMES,
+        REPEAT_COOLDOWN,
+        SMOOTH_WINDOW,
+        CONF_OK,
+        CONF_SURE,
+        CONF_MIN,
+        FONT,
+        CONNECTIONS,
+        normalize,
+        classify,
+        predict_letter,
+        text,
+        open_camera,
+        NET,
+    )
+except ModuleNotFoundError:
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from camera_reader import (
+        BASE,
+        MODEL_PATH,
+        NET_PATH,
+        HOLD_FRAMES,
+        REPEAT_COOLDOWN,
+        SMOOTH_WINDOW,
+        CONF_OK,
+        CONF_SURE,
+        CONF_MIN,
+        FONT,
+        CONNECTIONS,
+        normalize,
+        classify,
+        predict_letter,
+        text,
+        open_camera,
+        NET,
+    )
 
 
 class ASLDesktopApp:

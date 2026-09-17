@@ -1,4 +1,4 @@
 @echo off
 cd /d "%~dp0"
-python "new_project.py"
+python "camera_reader.py"
 if errorlevel 1 pause
